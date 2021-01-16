@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { ROOMS } from '../shared/rooms';
 import { Card, Button, CardTitle, CardText, CardImg } from 'reactstrap';
-import Title from './Title'
+import Title from './Title';
+import More from './More';
+import { Link } from 'react-router-dom';
 
 function RenderCard({items}) {
     const card = items.map((item) => {
@@ -11,7 +13,9 @@ function RenderCard({items}) {
                     <CardImg width="100%" src={item.image} alt={item.name}/>
                     <CardTitle tag="h5" style={{marginTop: "10px"}}>{item.name}</CardTitle>
                     <CardText>{item.description}</CardText>
-                    <Button>Book Now</Button>
+                    <Link to = {`/allservices/${item.id}`}>
+                        <Button>Book Now</Button>
+                    </Link>
                 </Card>
             </div>
         );
@@ -31,6 +35,7 @@ function Services(props) {
         <div>
             <Title title="Amenities & Services"/>
             <RenderCard items = {props.services}/>
+            <Link to="/allservices"><More info="See All Services" /> </Link>
         </div>
     );
 

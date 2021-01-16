@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Welcome() {
     return (
@@ -6,12 +7,14 @@ function Welcome() {
             <div>
                 <img src="/assets/images/royal-tulip.jpg" alt="Leizure Beach Resort" className="cover-image"/> 
             </div>
-            <div className="container">
-                <div className="row welcome">
-                    <div className="col-md-6 welcome-title">
+            <div className="container welcome">
+                
+                    <div className="row welcome-title">
                         <h1>Welcome to Leizure</h1>
                         <h3>Unwind The Pearl of Luxury</h3>
                     </div>
+                
+                <div className="row">
                     <div className="col-md-6 justify">
                         <p>
                             Leizure Beach Resort & Spa is located on Inani beach, 
@@ -22,6 +25,8 @@ function Welcome() {
                             from the hustle of the Cox's Bazar city with easy accessibility to all 
                             the major tourist. 
                         </p>
+                    </div>
+                    <div className="col-md-6 justify">
                         <p>
                             Apart from luxurious rooms & suites and two swimming pools (one exclusively 
                             for ladies) the resort boasts of a plethora of indoor & outdoor activities 
@@ -29,7 +34,6 @@ function Welcome() {
                             park, tennis & badminton courts, 3D movie hall, billiards, amphitheater, 
                             a luxurious spa and a well-appointed gym.
                         </p>
-                    
                     </div>
                 </div>
             </div>

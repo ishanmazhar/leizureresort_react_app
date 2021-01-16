@@ -43,6 +43,9 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: rgb(248, 242, 209);
+}
 
 header {
   background-color: black;
@@ -55,24 +58,31 @@ header {
   
 }
 .welcome {
-  padding:10px;
+  padding:20px;
   margin-top:20px;
   font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 15px 50px;
+  background: #fde7ab;
   
 }
 .welcome-title {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   display:block;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 .justify {
   text-align: justify;
 }
 .footer {
-  background-color: black;
+  padding: 40px 0px 20px 0px;
+  background-color: #040338;
   height:min-content;
-  padding:10px;
 }
 /* .container {
   margin:0;
@@ -96,4 +106,38 @@ a:link {
 }
 a:hover {
   color:burlywood;
+}
+
+.jumbotron {
+  padding:70px 30px 70px 30px;
+  margin:0px auto;
+  background: #a10e15 ;
+  color:floralwhite;
+  border-radius: 0px;
+}
+
+.navbar-dark {
+  background-color: #040338;
+}
+
+.page-enter {
+  opacity: 0.01;
+  transform: translateX(-100%);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 300ms ease-in;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.page-exit-active {
+  opacity: 0.01;
+  transform: translateX(100%);
+  transition: all 300ms ease-out; 
 }
