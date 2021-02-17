@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/leizureresort_react_app/static/css/main.e16d94d4.chunk.css",
+    "main.js": "/leizureresort_react_app/static/js/main.75b8448f.chunk.js",
+    "main.js.map": "/leizureresort_react_app/static/js/main.75b8448f.chunk.js.map",
+    "runtime-main.js": "/leizureresort_react_app/static/js/runtime-main.dfa02d87.js",
+    "runtime-main.js.map": "/leizureresort_react_app/static/js/runtime-main.dfa02d87.js.map",
+    "static/css/2.ca4dbaf1.chunk.css": "/leizureresort_react_app/static/css/2.ca4dbaf1.chunk.css",
+    "static/js/2.6c8b9577.chunk.js": "/leizureresort_react_app/static/js/2.6c8b9577.chunk.js",
+    "static/js/2.6c8b9577.chunk.js.map": "/leizureresort_react_app/static/js/2.6c8b9577.chunk.js.map",
+    "static/js/3.21b4b1cc.chunk.js": "/leizureresort_react_app/static/js/3.21b4b1cc.chunk.js",
+    "static/js/3.21b4b1cc.chunk.js.map": "/leizureresort_react_app/static/js/3.21b4b1cc.chunk.js.map",
+    "index.html": "/leizureresort_react_app/index.html",
+    "static/css/2.ca4dbaf1.chunk.css.map": "/leizureresort_react_app/static/css/2.ca4dbaf1.chunk.css.map",
+    "static/css/main.e16d94d4.chunk.css.map": "/leizureresort_react_app/static/css/main.e16d94d4.chunk.css.map",
+    "static/js/2.6c8b9577.chunk.js.LICENSE.txt": "/leizureresort_react_app/static/js/2.6c8b9577.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.min.css": "/leizureresort_react_app/static/media/fontawesome-webfont.f691f37e.woff",
+    "static/media/royal-tulip.3b9fa360.jpg": "/leizureresort_react_app/static/media/royal-tulip.3b9fa360.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dfa02d87.js",
+    "static/css/2.ca4dbaf1.chunk.css",
+    "static/js/2.6c8b9577.chunk.js",
+    "static/css/main.e16d94d4.chunk.css",
+    "static/js/main.75b8448f.chunk.js"
+  ]
+}
