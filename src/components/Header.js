@@ -81,7 +81,7 @@ class Header extends Component {
                          </Collapse>
                     </div>
                 </Navbar>
-                <Jumbotron>
+                {/* <Jumbotron>
                     <div className="container">
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
@@ -95,7 +95,7 @@ class Header extends Component {
                             </div>
                         </div>
                     </div>
-                </Jumbotron>
+                </Jumbotron> */}
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal} style={{backgroundColor: "#07055a", color: "burlywood"}}>Login</ModalHeader>
                     <ModalBody style={{backgroundColor: "#47c6ec"}}>

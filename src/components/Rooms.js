@@ -10,7 +10,7 @@ function RenderCard({items}) {
         return(
             <div key={item.id} className="col-12 col-md-4 mt-4 mb-4">
                 <Card body>
-                    <CardImg width="100%" src={item.image} alt={item.name}/>
+                    <CardImg width="100%" src={process.env.PUBLIC_URL + item.image} alt={item.name}/>
                     <CardTitle tag="h5" style={{marginTop: "10px"}}>{item.name}</CardTitle>
                     <CardText>{item.description}</CardText>
                     <Link to = {`/allrooms/${item.id}`}>

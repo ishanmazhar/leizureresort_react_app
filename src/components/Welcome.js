@@ -1,11 +1,12 @@
 import React from 'react';
+import royalTulip from '../assets/images/royal-tulip.jpg';
 import { Link } from 'react-router-dom';
 
 function Welcome() {
     return (
         <div>
             <div>
-                <img src="/assets/images/royal-tulip.jpg" alt="Leizure Beach Resort" className="cover-image"/> 
+                <img src={royalTulip} alt="Leizure Beach Resort" className="cover-image"/> 
             </div>
             <div className="container welcome">
                 

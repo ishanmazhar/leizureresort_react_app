@@ -14,7 +14,7 @@ class AllRooms extends Component {
             return(
                 <div key={room.id} className="col-12 col-md-6 mt-2">
                     <Card body>
-                        <CardImg width="100%" src={room.image} alt={room.name}/>
+                        <CardImg width="100%" src={process.env.PUBLIC_URL + room.image} alt={room.name}/>
                         <CardTitle tag="h5">{room.name}</CardTitle>
                         <CardText>{room.description}</CardText>
                         <Link to = {`/allrooms/${room.id}`}>

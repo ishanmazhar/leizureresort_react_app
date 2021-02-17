@@ -9,7 +9,7 @@ function RenderCard({item}) {
         return(
             <div>
                 <Card style={{margin: "20px 0px 20px 0px"}}> 
-                    <CardImg width = "100%" src = {item.image} alt = {item.name} /> 
+                    <CardImg width = "100%" src = {process.env.PUBLIC_URL + item.image} alt = {item.name} /> 
                     <CardBody>
                         <CardTitle tag = "h3"> {item.name} </CardTitle>
                         <CardText> {item.description} </CardText>
@@ -36,17 +36,18 @@ class BookingForm extends React.Component {
             email: '',
             occupancies: '',
             message: '',
+            x: 0,
             touched: {
                 name: false,
                 telnum: false,
                 email: false,
+                occupancies: false
             }
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleBlur = this.handleBlur.bind(this); 
-
     }
 
     handleInputChange(event) {
@@ -59,13 +60,23 @@ class BookingForm extends React.Component {
     }
 
     handleSubmit(event) {
-        alert(` Order has been confirmed as
-        Guest's Name:  ${this.state.name}
-        Mobile Number: ${this.state.telnum}
-        No. of Occupancies: ${this.state.occupancies}
+        this.state.x++; 
+        console.log('x = ' + this.state.x); 
+        var free = 3 - this.state.x; 
+        if (this.state.x >= 3) { 
+            alert("Sorry! All the rooms are occupied!");
+        } else {
+            alert(` Order has been confirmed as
+            Guest's Name:  ${this.state.name}
+            Mobile Number: ${this.state.telnum}
+            No. of Occupancies: ${this.state.occupancies}
+    
+            Thank you very much for your booking.
+            We are contacting you soon.
+            
+            No. of Free Rooms: ${free}`);  
+        }
 
-        Thank you very much for your booking.
-        We are contacting you soon.`);
         event.preventDefault();
     }
 
@@ -75,11 +86,12 @@ class BookingForm extends React.Component {
         })
     }
 
-    validate(name, telnum, email) {
+    validate(name, telnum, email, occupancies) { 
         const errors = {
             name: '',
             telnum: '',
             email: '',
+            occupancies: ''
         }
 
         if (this.state.touched.name && name.length < 3)
@@ -89,8 +101,12 @@ class BookingForm extends React.Component {
         if (this.state.touched.telnum && !regexp.test(telnum))
             errors.telnum = "Please enter a valid phone number";
         
-        if (this.state.touched.email && email.split(' ').filter(x => x === '@').length !== 1)
+        const validEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+        if (this.state.touched.email && !validEmail.test(email))
             errors.email = "Please enter a valid email address";
+
+        if (this.state.touched.occupancies && isNaN(parseInt(occupancies)))
+            errors.email = "Please enter the number of occupancies"; 
 
         return errors;
     }
@@ -108,7 +124,7 @@ class BookingForm extends React.Component {
             textAlign:"center"
         }
 
-        const errors = this.validate(this.state.name, this.state.telnum, this.state.email);
+        const errors = this.validate(this.state.name, this.state.telnum, this.state.email, this.state.occupancies); 
         return(
             <div style={{margin: "20px 0px 20px 0px"}}>
                 <Card> 
@@ -123,7 +139,7 @@ class BookingForm extends React.Component {
                                             placeholder="Your Name"
                                             invalid={errors.name !== ''}
                                             onChange={this.handleInputChange}
-                                            onBlur={this.handleBlur('name')} /> 
+                                            onBlur={this.handleBlur('name')} required /> 
                                         <FormFeedback>{errors.name}</FormFeedback>
                                     </Col>
                                 </FormGroup>
@@ -134,7 +150,7 @@ class BookingForm extends React.Component {
                                             placeholder="Your Mobile Number"
                                             invalid={errors.telnum !== ''}
                                             onChange={this.handleInputChange}
-                                            onBlur={this.handleBlur('telnum')} /> 
+                                            onBlur={this.handleBlur('telnum')} required/> 
                                         <FormFeedback>{errors.telnum}</FormFeedback>
                                     </Col>
                                 </FormGroup>
@@ -145,7 +161,7 @@ class BookingForm extends React.Component {
                                             placeholder="Your Email Address"
                                             invalid={errors.email !== ''} 
                                             onChange={this.handleInputChange}
-                                            onBlur={this.handleBlur('email')} /> 
+                                            onBlur={this.handleBlur('email')} required/> 
                                         <FormFeedback>{errors.email}</FormFeedback>
                                     </Col>
                                 </FormGroup>
@@ -154,12 +170,14 @@ class BookingForm extends React.Component {
                                     <Col md={9}>
                                         <Input type="select" id="occupancies" name="occupancies"
                                             placeholder="Number of Occupancies"
-                                            onChange={this.handleInputChange}>
+                                            onChange={this.handleInputChange} required>
+                                                <option>Select</option>
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
                                                 <option>4</option>
                                         </Input> 
+                                        <FormFeedback>{errors.occupancies}</FormFeedback>
                                     </Col>
                                 </FormGroup>
                                 <FormGroup row>
@@ -265,7 +283,7 @@ export function ServiceDetails(props) {
         <div className="container">
             <div className="row">
                 <div className="col-12 col-md-6">
-                    <RenderCard item = {props.srvice} />  
+                    <RenderCard item = {props.service} />  
                 </div>
                 <div className="col-12 col-md-6 mt-1">
                     <BookingForm />

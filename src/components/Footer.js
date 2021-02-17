@@ -34,8 +34,15 @@ function Footer(props) {
                 Contact: +88034152666-80, +88 02 9140453-4, +8801844016001
             </div>
             <div className="row center" style={{color:"burlywood"}}>
-                ©2020. Leizure Beach Resort.  All right reserved.   Site by FSMERN001
+                ©2020. Leizure Beach Resort.  All rights reserved.
             </div>
+            <div className="row center" style={{color:"burlywood"}}>
+                <p>Site by Md. Mazharul Hasan Nur, FSMERN001, Bohubrihi</p>
+            </div>
+            <div className="row center" style={{color:"burlywood"}}>
+                <p>Image Credit: Royal Tulip Beach Resort and Google Images</p>
+            </div>
+
         </div>
     );
 }
