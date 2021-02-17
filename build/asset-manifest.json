@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/leizureresort_react_app/static/css/main.e16d94d4.chunk.css",
-    "main.js": "/leizureresort_react_app/static/js/main.0ec502d7.chunk.js",
-    "main.js.map": "/leizureresort_react_app/static/js/main.0ec502d7.chunk.js.map",
+    "main.js": "/leizureresort_react_app/static/js/main.fa549010.chunk.js",
+    "main.js.map": "/leizureresort_react_app/static/js/main.fa549010.chunk.js.map",
     "runtime-main.js": "/leizureresort_react_app/static/js/runtime-main.dfa02d87.js",
     "runtime-main.js.map": "/leizureresort_react_app/static/js/runtime-main.dfa02d87.js.map",
     "static/css/2.ca4dbaf1.chunk.css": "/leizureresort_react_app/static/css/2.ca4dbaf1.chunk.css",
@@ -22,6 +22,6 @@
     "static/css/2.ca4dbaf1.chunk.css",
     "static/js/2.6c8b9577.chunk.js",
     "static/css/main.e16d94d4.chunk.css",
-    "static/js/main.0ec502d7.chunk.js"
+    "static/js/main.fa549010.chunk.js"
   ]
 }

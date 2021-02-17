@@ -44,7 +44,7 @@ class Header extends Component {
                 <Navbar dark expand = "md">
                     <div className="container">
                         <NavbarToggler onClick = {this.toggleNav} /> 
-                        <NavbarBrand className="mr-auto" href="/home">
+                        <NavbarBrand className="mr-auto" href="/leizureresort_react_app">
                             Leizure
                         </NavbarBrand>
                         <Collapse isOpen = {this.state.isNavOpen} navbar>
