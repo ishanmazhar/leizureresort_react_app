@@ -189,13 +189,13 @@ class BookingForm extends React.Component {
                                     </Col>
                                 </FormGroup>
                                 <Button type="submit" value="submit" color="primary" 
-                                            style={{display:"block", marginRight:"auto", marginLeft:"auto"}}>Confirm Booking</Button>
+                                        style={{display:"block", marginRight:"auto", marginLeft:"auto"}}>
+                                    Confirm Booking
+                                </Button>
                             </Form>
                         </CardText>
                     </CardBody>
                 </Card>
-
-                
 
                 {/* React-Redux_form */}
 
