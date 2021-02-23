@@ -1,8 +1,10 @@
 import React from 'react'; 
 import { Card, CardImg, CardBody, CardText, CardTitle, Button, Row, Label, 
-    Col, Form, FormGroup, Input, FormFeedback } from 'reactstrap';
+    Col, Form, FormGroup, Input, FormFeedback, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { LocalForm, Control, Errors} from 'react-redux-form';
 import { Link } from 'react-router-dom'; 
+import ConfirmLogin from './ConfirmLogin'; 
+import LoginModal from './LoginModal'; 
 
 function RenderCard({item}) {
     if(item != null) {
@@ -42,14 +44,34 @@ class BookingForm extends React.Component {
                 telnum: false,
                 email: false,
                 occupancies: false
-            }
+            },
+            isLoggedIn: false,
+            isModalOpen: false
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleBlur = this.handleBlur.bind(this); 
+        this.toggleModal = this.toggleModal.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
+    }
+    //------------------------ Login Methods -------------------------
+    toggleModal() {
+        this.setState({
+            isModalOpen: !this.state.isModalOpen
+        });
     }
 
+    handleLogin(event) {
+        this.toggleModal();
+        alert("Username: " + this.username.value + "Password: " + this.password.value 
+            + " Remember: " + this.remember.chacked);
+        this.setState({
+            isLoggedIn: true
+        });
+        event.preventDefault();
+    }
+    //------------------------ Login Methods -----------------------
     handleInputChange(event) {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value; 
@@ -60,23 +82,28 @@ class BookingForm extends React.Component {
     }
 
     handleSubmit(event) {
-        this.state.x++; 
-        console.log('x = ' + this.state.x); 
-        var free = 3 - this.state.x; 
-        if (this.state.x >= 3) { 
-            alert("Sorry! All the rooms are occupied!");
+        if(!this.state.isLoggedIn) {
+            console.log(this.state.isLoggedIn); 
+            this.toggleModal();
         } else {
-            alert(` Order has been confirmed as
-            Guest's Name:  ${this.state.name}
-            Mobile Number: ${this.state.telnum}
-            No. of Occupancies: ${this.state.occupancies}
-    
-            Thank you very much for your booking.
-            We are contacting you soon.
-            
-            No. of Free Rooms: ${free}`);  
+            console.log(this.state.isLoggedIn); 
+            this.state.x++; 
+            console.log('x = ' + this.state.x); 
+            var free = 3 - this.state.x; 
+            if (this.state.x > 3) { 
+                alert("Sorry! All the rooms are occupied!");
+            } else {
+                alert(` Order has been confirmed as
+                Guest's Name:  ${this.state.name}
+                Mobile Number: ${this.state.telnum}
+                No. of Occupancies: ${this.state.occupancies}
+        
+                Thank you very much for your booking.
+                We are contacting you soon.
+                
+                No. of Free Rooms: ${free}`);  
+            }
         }
-
         event.preventDefault();
     }
 
@@ -193,9 +220,37 @@ class BookingForm extends React.Component {
                                     Confirm Booking
                                 </Button>
                             </Form>
+                            {/* <ConfirmLogin /> */}
                         </CardText>
                     </CardBody>
                 </Card>
+
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                <ModalHeader toggle={this.toggleModal} style={{backgroundColor: "#07055a", color: "burlywood"}}>Please login to continue</ModalHeader>
+                <ModalBody style={{backgroundColor: "#47c6ec"}}>
+                    <Form onSubmit={this.handleLogin}> 
+                        <FormGroup>
+                            <Label htmlFor="username">Username</Label>
+                            <Input type="text" id="username" name="username"
+                            innerRef={(input) => this.username = input} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label htmlFor="password">Password</Label>
+                            <Input type="password" id="password" name="password"
+                            innerRef={(input) => this.password = input} />
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check>
+                                <Input type="checkbox" name="remember"
+                                innerRef={(input) => this.remember = input} />
+                                Remember Me
+                            </Label>
+                        </FormGroup>
+                        <Button type="submit" value="submit" color="primary">Login</Button>
+                    </Form>
+                </ModalBody>
+                </Modal>
+
 
                 {/* React-Redux_form */}
 

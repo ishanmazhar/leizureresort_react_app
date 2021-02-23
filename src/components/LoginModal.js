@@ -9,7 +9,8 @@ class LoginModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isModalOpen: false
+            isModalOpen: false,
+            isLoggedIn: false
         };
         this.toggleModal = this.toggleModal.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
@@ -26,6 +27,10 @@ class LoginModal extends Component {
         this.toggleModal();
         alert("Username: " + this.username.value + "Password: " + this.password.value 
             + " Remember: " + this.remember.chacked);
+        // this.setState({
+        //     isLoggedIn: true
+        // });
+        this.props.isLoggedIn(); 
             event.preventDefault();
     }
 

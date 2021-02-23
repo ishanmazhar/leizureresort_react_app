@@ -73,7 +73,7 @@ class Header extends Component {
                             </Nav>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                    <LoginModal />
+                                    <LoginModal isLoggedIn={this.props.isLoggedIn} />  
                                 </NavItem>
                             </Nav>
                          </Collapse>

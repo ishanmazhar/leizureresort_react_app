@@ -30,7 +30,6 @@ function RenderCard({items}) {
 }
 
 function Rooms(props) {
-    console.log(props.rooms)
     return(
         <div>
             <Title title="Rooms & Suites"/>

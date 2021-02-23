@@ -23,8 +23,17 @@ class Main extends Component {
     this.state = {
         rooms: ROOMS,
         restaurants: RESTAURANTS,
-        services: SERVICES
+        services: SERVICES,
+
+        isLoggedIn: false
     };
+    this.isLoggedIn = this.isLoggedIn.bind(this); 
+  }
+
+  isLoggedIn() {
+    this.setState({
+      isLoggedIn: true
+    });
   }
   
   render() {
@@ -46,10 +55,11 @@ class Main extends Component {
         <ServiceDetails service={this.state.services.filter((service) => service.id === parseInt(match.params.serviceId, 10))[0]} />
       );
     }
+    console.log(this.state.isLoggedIn); 
 
     return (
       <div>
-        <Header />
+        <Header isLoggedIn={this.isLoggedIn} /> 
         <TransitionGroup>
             <CSSTransition in={this.state.mounted} classNames="page" timeout={300}> 
               <Switch>
